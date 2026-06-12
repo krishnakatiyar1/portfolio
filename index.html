@@ -1,217 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="index.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <meta name="description" content="Krishna Katiyar's portfolio - web development, responsive design, and risk assessment services.">
+    <link rel="stylesheet" href="index.css">
+    <title>Krishna Katiyar | Web Developer</title>
 </head>
 <body id="top">
-    <div class="container">
-        <header class="site-header">
-            <a href="#top" class="site-brand">
-                <span class="site-title">My Portfolio</span>
+    <header class="site-header">
+        <div class="nav-shell">
+            <a href="#top" class="site-brand" aria-label="Krishna Katiyar home">
+                <span class="brand-mark">K</span>
+                <span>Krishna<span class="brand-dot">.</span></span>
             </a>
-            <nav aria-label="Main navigation">
+
+            <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-nav" aria-label="Main navigation">
                 <ul class="site-nav">
-                    <li><a href="#features">Features</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#trainings">Trainings</a></li>
-                    <li><a href="#risk-assessment">Risk Assessment</a></li>
+                    <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#trainings">Training</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <button class="theme-toggle" type="button" aria-label="Toggle light and dark mode">Dark</button>
-        </header>
 
-        <section class="hero">
+            <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+                <span class="theme-icon" aria-hidden="true">◐</span>
+                <span class="theme-label">Dark</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero section-shell">
             <div class="hero-content">
-                <p class="hero-eyebrow">Crafting digital experiences</p>
-                <h1>Designing beautiful websites and modern web apps.</h1>
-                <p class="hero-text">I create responsive, user-friendly portfolio sites and web interfaces with a focus on clarity, performance, and polish. Discover projects, trainings, and contact options below.</p>
+                <div class="availability"><span></span> Available for new opportunities</div>
+                <p class="hero-eyebrow">Hello, I'm Krishna Katiyar</p>
+                <h1>I build digital experiences that <span>look good and work better.</span></h1>
+                <p class="hero-text">A web developer focused on responsive interfaces, thoughtful user experiences, and reliable modern applications.</p>
                 <div class="hero-actions">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    <a href="#projects" class="btn btn-primary">Explore my work <span aria-hidden="true">→</span></a>
+                    <a href="#contact" class="btn btn-secondary">Let's talk</a>
+                </div>
+                <div class="hero-stats" aria-label="Portfolio highlights">
+                    <div><strong>7+</strong><span>Core skills</span></div>
+                    <div><strong>3+</strong><span>Project types</span></div>
+                    <div><strong>100%</strong><span>Responsive</span></div>
                 </div>
             </div>
+
+            <div class="hero-visual" aria-hidden="true">
+                <div class="glow glow-one"></div>
+                <div class="glow glow-two"></div>
+                <div class="code-window">
+                    <div class="window-bar">
+                        <span></span><span></span><span></span>
+                        <p>portfolio.js</p>
+                    </div>
+                    <pre><code><span class="code-purple">const</span> developer = {
+  name: <span class="code-green">'Krishna'</span>,
+  skills: [
+    <span class="code-green">'MERN Stack'</span>,
+    <span class="code-green">'AWS Cloud'</span>,
+    <span class="code-green">'UI / UX'</span>
+  ],
+  passion: <span class="code-green">'Building ideas'</span>
+};
+
+<span class="code-blue">developer</span>.create();</code></pre>
+                    <div class="code-status"><span></span> Ready to build</div>
+                </div>
+                <div class="floating-card floating-card-one">⚡ Fast</div>
+                <div class="floating-card floating-card-two">Responsive ✓</div>
+            </div>
         </section>
 
-        <section id="features" class="section section-features">
+        <section id="projects" class="section section-shell">
             <div class="section-header">
-                <p class="section-eyebrow">Why choose me</p>
-                <h2>What I bring to every project</h2>
-            </div>
-            <div class="cards-grid">
-                <article class="card">
-                    <h3>Responsive design</h3>
-                    <p>Web pages that look great on desktop, tablet, and mobile devices with clean layouts and intuitive navigation.</p>
-                </article>
-                <article class="card">
-                    <h3>Fast delivery</h3>
-                    <p>Structured development workflows that help me deliver polished websites quickly without sacrificing quality.</p>
-                </article>
-                <article class="card">
-                    <h3>Modern tools</h3>
-                    <p>Using current web standards, CSS, and lightweight frameworks to build maintainable and accessible sites.</p>
-                </article>
-            </div>
-        </section>
-
-        <section id="projects" class="section section-projects">
-            <div class="section-header">
-                <p class="section-eyebrow">Selected works</p>
-                <h2>Recent projects</h2>
+                <div>
+                    <p class="section-eyebrow">Selected work</p>
+                    <h2>Projects with purpose</h2>
+                </div>
+                <p>Ideas shaped into clean, practical, and engaging digital products.</p>
             </div>
             <div class="project-grid">
-                <article class="project-card">
-                    <h3>Portfolio Website</h3>
-                    <p>A personal showcase built with a clean layout, interactive sections, and smooth scrolling navigation.</p>
+                <article class="project-card project-featured">
+                    <div class="project-number">01</div>
+                    <div class="project-icon">⌘</div>
+                    <p class="project-type">Web Development</p>
+                    <h3>Personal Portfolio</h3>
+                    <p>A polished personal showcase with smooth navigation, dark mode, and a connected contact experience.</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
                 </article>
                 <article class="project-card">
-                    <h3>Business Landing Page</h3>
-                    <p>An engaging landing page designed to highlight services, build trust, and generate leads.</p>
+                    <div class="project-number">02</div>
+                    <div class="project-icon">↗</div>
+                    <p class="project-type">Landing Page</p>
+                    <h3>Business Website</h3>
+                    <p>A conversion-focused landing page designed to present services, establish trust, and generate leads.</p>
+                    <div class="tags"><span>Responsive</span><span>UI Design</span></div>
                 </article>
                 <article class="project-card">
-                    <h3>UI Redesign</h3>
-                    <p>Visual refresh and usability improvements for an existing web app to make content more inviting.</p>
+                    <div class="project-number">03</div>
+                    <div class="project-icon">◇</div>
+                    <p class="project-type">Product Design</p>
+                    <h3>Interface Redesign</h3>
+                    <p>A visual and usability refresh that makes an existing application simpler and more inviting.</p>
+                    <div class="tags"><span>UI/UX</span><span>Accessibility</span></div>
+                </article>
+                <article class="project-card">
+                    <div class="project-number">04</div>
+                    <div class="project-icon">◫</div>
+                    <p class="project-type">Full-Stack Development</p>
+                    <h3>E-Commerce Website</h3>
+                    <p>A responsive online store with product browsing, shopping cart functionality, and a smooth checkout experience.</p>
+                    <div class="tags"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
                 </article>
             </div>
         </section>
 
-        <section id="trainings" class="section section-trainings">
-            <div class="section-header">
-                <p class="section-eyebrow">Professional growth</p>
-                <h2>Training & certifications</h2>
-            </div>
-            <ul class="training-list">
-                <li>
-                    <strong>Web Development Bootcamp</strong>
-                    <span>Responsive design, JavaScript, and performance best practices.</span>
-                </li>
-                <li>
-                    <strong>UX/UI Fundamentals</strong>
-                    <span>Design systems, layout theory, and accessible interface patterns.</span>
-                </li>
-                <li>
-                    <strong>Frontend Performance</strong>
-                    <span>Optimization techniques for faster loading and better user experience.</span>
-                </li>
-            </ul>
-        </section>
-
-        <section id="risk-assessment" class="section section-risk-assessment">
-            <div class="section-header">
-                <p class="section-eyebrow">Risk management</p>
-                <h2>Risk Assessment Services</h2>
-            </div>
-            <div class="cards-grid">
-                <article class="card">
-                    <h3>Comprehensive Analysis</h3>
-                    <p>Thorough evaluation of potential risks across projects, identifying vulnerabilities and threats that could impact success.</p>
-                </article>
-                <article class="card">
-                    <h3>Mitigation Strategies</h3>
-                    <p>Developing actionable plans to minimize risks, including contingency measures and preventive actions.</p>
-                </article>
-                <article class="card">
-                    <h3>Compliance & Security</h3>
-                    <p>Ensuring projects meet industry standards and regulatory requirements while maintaining data security.</p>
-                </article>
+        <section id="services" class="section section-tinted">
+            <div class="section-shell">
+                <div class="section-heading-centered">
+                    <p class="section-eyebrow">What I do</p>
+                    <h2>Skills that bring ideas to life</h2>
+                    <p>From the first layout to deployment, I care about every detail.</p>
+                </div>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <span class="service-icon">01</span>
+                        <h3>Responsive Design</h3>
+                        <p>Flexible layouts that feel natural on mobile, tablet, and desktop screens.</p>
+                    </article>
+                    <article class="service-card">
+                        <span class="service-icon">02</span>
+                        <h3>Full-Stack Development</h3>
+                        <p>Modern applications built with JavaScript, React, Node.js, Express, and MongoDB.</p>
+                    </article>
+                    <article class="service-card">
+                        <span class="service-icon">03</span>
+                        <h3>Cloud & Performance</h3>
+                        <p>Fast, dependable experiences supported by optimization and AWS cloud knowledge.</p>
+                    </article>
+                    <article class="service-card">
+                        <span class="service-icon">04</span>
+                        <h3>Risk Assessment</h3>
+                        <p>Practical analysis, security awareness, mitigation planning, and compliance support.</p>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <section id="about" class="section section-about">
-            <div class="section-header">
-                <p class="section-eyebrow">Meet the creator</p>
-                <h2>About me</h2>
-            </div>
+        <section id="about" class="section section-shell">
             <div class="about-grid">
-                <div>
-                    <p>I'm a web designer and developer focused on creating accessible, user-centered online experiences. I combine visual design with thoughtful structure to help brands tell their story clearly.</p>
-                    <p>My work is driven by strong typography, balanced spacing, and an attention to detail that turns simple ideas into polished websites.</p>
+                <div class="about-visual">
+                    <div class="portrait-card">
+                        <span class="portrait-initials">KK</span>
+                        <div class="portrait-label"><strong>Krishna Katiyar</strong><span>Web Developer</span></div>
+                    </div>
+                    <div class="experience-badge"><strong>Always</strong><span>learning & growing</span></div>
                 </div>
-                <div class="skills-card">
-                    <h3>Skills</h3>
-                    <ul>
-                        <li>HTML & CSS</li>
-                        <li>JavaScript</li>
-                        <li>MERN Stack</li>
-                        <li>Responsive design</li>
-                        <li>AWS Cloud</li>
-                        <li>React(Vite)</li>
-                        <li>UI/UX concepts (Currently learning)</li>
-                    </ul>
+                <div class="about-content">
+                    <p class="section-eyebrow">About me</p>
+                    <h2>Curiosity in the code.<br>Care in the details.</h2>
+                    <p>I'm a web developer focused on creating accessible, user-centered online experiences. I combine visual design with thoughtful structure to help ideas communicate clearly.</p>
+                    <p>My work is guided by strong typography, balanced spacing, maintainable code, and an eagerness to keep learning.</p>
+                    <div class="skills-list">
+                        <span>HTML & CSS</span>
+                        <span>JavaScript</span>
+                        <span>React / Vite</span>
+                        <span>MERN Stack</span>
+                        <span>AWS Cloud</span>
+                        <span>Responsive Design</span>
+                        <span>UI / UX</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section section-contact">
-            <div class="section-header">
-                <p class="section-eyebrow">Say hello</p>
-                <h2>Let's work together</h2>
+        <section id="trainings" class="section section-tinted">
+            <div class="section-shell">
+                <div class="section-heading-centered">
+                    <p class="section-eyebrow">Continuous growth</p>
+                    <h2>Training & certifications</h2>
+                </div>
+                <div class="timeline">
+                    <article>
+                        <span class="timeline-dot"></span>
+                        <p>Development</p>
+                        <h3>Web Development Bootcamp</h3>
+                        <span>Responsive design, JavaScript, and performance best practices.</span>
+                    </article>
+                    <article>
+                        <span class="timeline-dot"></span>
+                        <p>Design</p>
+                        <h3>UX/UI Fundamentals</h3>
+                        <span>Design systems, layout theory, and accessible interface patterns.</span>
+                    </article>
+                    <article>
+                        <span class="timeline-dot"></span>
+                        <p>Optimization</p>
+                        <h3>Frontend Performance</h3>
+                        <span>Techniques for faster loading and a smoother user experience.</span>
+                    </article>
+                    <article>
+                        <span class="timeline-dot"></span>
+                        <p>Cloud</p>
+                        <h3>Cloud Computing in AWS</h3>
+                        <span>Cloud infrastructure, core AWS services, deployment, and scalable application fundamentals.</span>
+                    </article>
+                </div>
             </div>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <h3>Contact details</h3>
-                    <p>Email: krishnakatiyar1730@gmail.com</p>
-                    <p>Phone: +91 7905671730</p>
-                    <a href="https://www.linkedin.com/in/krishna-katiyar-1a0220308" target="_blank" rel="noopener">Click Here for LinkedIn</a>
-                    <div>
-                        <a href="https://github.com/krishnakatiyar1" target="_blank" rel="noopener">Click Here for GitHub Profile</a>
+        </section>
+
+        <section id="contact" class="section section-shell">
+            <div class="contact-wrap">
+                <div class="contact-content">
+                    <p class="section-eyebrow">Get in touch</p>
+                    <h2>Have an idea?<br><span>Let's build it together.</span></h2>
+                    <p>I'm open to opportunities, collaborations, and interesting projects. Send a message and I'll get back to you.</p>
+                    <div class="contact-links">
+                        <a href="mailto:krishnakatiyar1730@gmail.com"><span>@</span><div><small>Email</small>krishnakatiyar1730@gmail.com</div></a>
+                        <a href="tel:+917905671730"><span>☎</span><div><small>Phone</small>+91 79056 71730</div></a>
+                        <a href="https://www.linkedin.com/in/krishna-katiyar-1a0220308" target="_blank" rel="noopener"><span>in</span><div><small>LinkedIn</small>View my profile</div></a>
+                        <a href="https://github.com/krishnakatiyar1" target="_blank" rel="noopener"><span>GH</span><div><small>GitHub</small>Explore my code</div></a>
                     </div>
                 </div>
 
                 <form class="contact-form" id="contact-form">
-                    <label>
-                        Name
-                        <input type="text" name="name" placeholder="Your name" required>
-                    </label>
-                    <label>
-                        Email
-                        <input type="email" name="email" placeholder="you@example.com" required>
-                    </label>
-                    <label>
-                        Message
-                        <textarea rows="5" name="message" placeholder="Tell me about your project" required></textarea>
-                    </label>
-                    <button type="submit" class="btn btn-primary">Send message</button>
+                    <div class="field-row">
+                        <label>Name<input type="text" name="name" placeholder="Your name" autocomplete="name" required></label>
+                        <label>Email<input type="email" name="email" placeholder="you@example.com" autocomplete="email" required></label>
+                    </div>
+                    <label>Message<textarea rows="6" name="message" placeholder="Tell me about your project..." required></textarea></label>
+                    <button type="submit" class="btn btn-primary">Send message <span aria-hidden="true">→</span></button>
                     <p class="form-status" aria-live="polite"></p>
                 </form>
             </div>
         </section>
+    </main>
 
-        <footer class="site-footer">
-            <p>&copy; 2026 Krishna Katiyar. Crafted with care.</p>
-        </footer>
-    </div>
+    <footer class="site-footer">
+        <div class="section-shell footer-inner">
+            <a href="#top" class="site-brand"><span class="brand-mark">K</span><span>Krishna<span class="brand-dot">.</span></span></a>
+            <p>&copy; 2026 Krishna Katiyar. Designed and built with care.</p>
+            <a href="#top" class="back-top" aria-label="Back to top">↑</a>
+        </div>
+    </footer>
 
     <script>
         const themeToggle = document.querySelector('.theme-toggle');
+        const themeLabel = document.querySelector('.theme-label');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
         const contactForm = document.querySelector('#contact-form');
         const formStatus = document.querySelector('.form-status');
         const root = document.body;
+
+        function updateTheme(isDark) {
+            themeLabel.textContent = isDark ? 'Light' : 'Dark';
+            themeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
+        }
+
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const storedTheme = localStorage.getItem('theme');
-
-        function updateToggleLabel(isDark) {
-            themeToggle.textContent = isDark ? 'Light' : 'Dark';
-        }
-
-        if (storedTheme) {
-            const isDark = storedTheme === 'dark';
-            root.classList.toggle('dark-mode', isDark);
-            updateToggleLabel(isDark);
-        }
+        const initialDark = storedTheme ? storedTheme === 'dark' : prefersDark;
+        root.classList.toggle('dark-mode', initialDark);
+        updateTheme(initialDark);
 
         themeToggle.addEventListener('click', () => {
             const isDark = root.classList.toggle('dark-mode');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            updateToggleLabel(isDark);
+            updateTheme(isDark);
+        });
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('is-open');
+            menuToggle.classList.toggle('is-open', isOpen);
+            menuToggle.setAttribute('aria-expanded', isOpen);
+            menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+        });
+
+        document.querySelectorAll('.site-nav a').forEach((link) => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('is-open');
+                menuToggle.classList.remove('is-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
         });
 
         contactForm.addEventListener('submit', async (event) => {
             event.preventDefault();
-
             const submitButton = contactForm.querySelector('button[type="submit"]');
             const formData = new FormData(contactForm);
             const messageData = {
@@ -227,20 +313,13 @@
             try {
                 const response = await fetch('http://localhost:5000/api/message', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(messageData)
                 });
-
                 const result = await response.json();
-
-                if (!response.ok || !result.success) {
-                    throw new Error(result.message || 'Message could not be sent.');
-                }
-
+                if (!response.ok || !result.success) throw new Error(result.message);
                 contactForm.reset();
-                formStatus.textContent = 'Message sent and saved on laptop.';
+                formStatus.textContent = 'Thanks! Your message was sent successfully.';
                 formStatus.classList.add('success');
             } catch (error) {
                 formStatus.textContent = 'Please start the backend server, then try again.';
