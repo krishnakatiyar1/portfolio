@@ -6,6 +6,7 @@ console.log(__filename);
 const dns = require('node:dns');
 dns.setServers(['8.8.8.8', '1.1.1.1']);
 
+const path = require('node:path');
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -51,15 +52,19 @@ const messageSchema = new mongoose.Schema(
 
 const Message = mongoose.model('Message', messageSchema);
 
-// Root route
+// Frontend routes
 app.get('/', (req, res) => {
   console.log('ROOT ROUTE HIT');
 
-  res.status(200).send('ROOT ROUTE WORKING');
+  res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
-// Health route
-app.get('/api/health', (req, res) => {
+app.get('/index.css', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'index.css'));
+});
+
+// Health routes
+app.get(['/api/health', '/health'], (req, res) => {
   console.log('HEALTH ROUTE HIT');
 
   res.status(200).json({
