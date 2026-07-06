@@ -311,11 +311,14 @@
             submitButton.disabled = true;
 
             try {
-                const response = await fetch('http://3.107.69.28:5000/api/message', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(messageData)
-                });
+                const response = await fetch('/api/message', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(messageData)
+               });
+                 
                 const result = await response.json();
                 if (!response.ok || !result.success) throw new Error(result.message);
                 contactForm.reset();
