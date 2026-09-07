@@ -93,6 +93,10 @@ app.get('/index.css', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'index.css'));
 });
 
+app.get(['/Krishna_Katiyar_Resume.pdf', '/resume.pdf', '/resume'], (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'Krishna_Katiyar_Resume.pdf'));
+});
+
 // Health routes
 app.get(['/api/health', '/health'], (req, res) => {
   res.status(200).json({
