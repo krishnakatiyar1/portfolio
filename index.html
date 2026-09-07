@@ -325,7 +325,7 @@
                 formStatus.textContent = 'Thanks! Your message was sent successfully.';
                 formStatus.classList.add('success');
             } catch (error) {
-                formStatus.textContent = 'Please start the backend server, then try again.';
+                formStatus.textContent = error.message || 'Failed to send message. Please try again.';
                 formStatus.classList.add('error');
             } finally {
                 submitButton.disabled = false;
