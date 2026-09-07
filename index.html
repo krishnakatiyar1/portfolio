@@ -37,13 +37,9 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#trainings">Training</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><button type="button" class="nav-resume-btn open-resume-modal">Resume 📄</button></li>
                 </ul>
             </nav>
-
-            <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
-                <span class="theme-icon" aria-hidden="true">◐</span>
-                <span class="theme-label">Dark</span>
-            </button>
         </div>
     </header>
 
@@ -56,6 +52,7 @@
                 <p class="hero-text">A web developer focused on responsive interfaces, thoughtful user experiences, and reliable modern applications.</p>
                 <div class="hero-actions">
                     <a href="#projects" class="btn btn-primary">Explore my work <span aria-hidden="true">→</span></a>
+                    <button type="button" class="btn btn-secondary btn-resume open-resume-modal">View Resume <span aria-hidden="true">↗</span></button>
                     <a href="#contact" class="btn btn-secondary">Let's talk</a>
                 </div>
                 <div class="hero-stats" aria-label="Portfolio highlights">
@@ -240,6 +237,7 @@
                         <a href="tel:+917905671730"><span>☎</span><div><small>Phone</small>+91 79056 71730</div></a>
                         <a href="https://www.linkedin.com/in/krishna-katiyar-1a0220308" target="_blank" rel="noopener"><span>in</span><div><small>LinkedIn</small>View my profile</div></a>
                         <a href="https://github.com/krishnakatiyar1" target="_blank" rel="noopener"><span>GH</span><div><small>GitHub</small>Explore my code</div></a>
+                        <button type="button" class="contact-resume-btn open-resume-modal"><span>📄</span><div><small>Resume</small>View Resume Modal ↗</div></button>
                     </div>
                 </div>
 
@@ -256,6 +254,106 @@
         </section>
     </main>
 
+    <!-- Interactive 3D Glassmorphism Resume Modal -->
+    <div id="resume-modal" class="resume-modal-overlay" aria-hidden="true">
+        <div class="resume-modal-card">
+            <button type="button" class="close-resume-modal" aria-label="Close Resume">&times;</button>
+            
+            <header class="resume-header">
+                <h2>KRISHNA KATIYAR</h2>
+                <p class="resume-contact">Kanpur 208011 &bull; +91 7905671730 &bull; krishnakatiyar1730@gmail.com</p>
+                <div class="resume-socials">
+                    <a href="https://www.linkedin.com/in/krishna-katiyar-1a0220308" target="_blank" rel="noopener">LinkedIn</a> &bull;
+                    <a href="https://github.com/krishnakatiyar1" target="_blank" rel="noopener">GitHub</a> &bull;
+                    <a href="#top" class="close-modal-link">Portfolio</a>
+                </div>
+            </header>
+
+            <div class="resume-body">
+                <section class="resume-sec">
+                    <h3>PROFESSIONAL SUMMARY</h3>
+                    <p>BCA student (CGPA 8.04) specializing in MERN stack development and AWS cloud deployment. Led a 4-member team on a 3-4 week academic project and contributed to a 2nd-place finish at a college hackathon. Strong foundation in C++ Data Structures and Algorithms, with hands-on experience building responsive, user-centric full-stack applications.</p>
+                </section>
+
+                <section class="resume-sec">
+                    <h3>EDUCATION</h3>
+                    <div class="resume-item">
+                        <h4>Bachelor of Computer Applications (BCA) &mdash; CGPA: 8.04</h4>
+                        <span>Currently Pursuing (5th Semester)</span>
+                    </div>
+                    <div class="resume-item">
+                        <h4>12th Grade (Intermediate) &mdash; UP Board</h4>
+                        <span>Completed</span>
+                    </div>
+                    <div class="resume-item">
+                        <h4>10th Grade (Matriculation) &mdash; UP Board</h4>
+                        <span>Completed</span>
+                    </div>
+                </section>
+
+                <section class="resume-sec">
+                    <h3>TECHNICAL SKILLS</h3>
+                    <ul class="resume-bullets">
+                        <li><strong>Programming Languages:</strong> C++ (Data Structures & Algorithms), Python, JavaScript, HTML, CSS</li>
+                        <li><strong>Web Technologies:</strong> Node.js, Express.js, React, MongoDB (MERN Stack), RESTful APIs</li>
+                        <li><strong>Cloud Computing:</strong> Amazon Web Services (AWS)</li>
+                        <li><strong>Tools & Version Control:</strong> Git, GitHub, Tailwind CSS, Bootstrap</li>
+                        <li><strong>AI-Assisted Development:</strong> Prompt Engineering</li>
+                    </ul>
+                </section>
+
+                <section class="resume-sec">
+                    <h3>CERTIFICATIONS & TECHNICAL TRAINING</h3>
+                    <div class="resume-item">
+                        <h4>AWS Cloud Computing Training (40 Days)</h4>
+                        <p>Gained foundational and hands-on experience with cloud architecture and deployment.</p>
+                    </div>
+                    <div class="resume-item">
+                        <h4>MERN Stack Development Training (40 Days)</h4>
+                        <p>Developed full-stack web applications integrating MongoDB, Express.js, React, and Node.js.</p>
+                    </div>
+                    <div class="resume-item">
+                        <h4>Web Development Training (20 Days)</h4>
+                        <p>Built a strong foundation in modern web development practices, focusing on responsive design.</p>
+                    </div>
+                </section>
+
+                <section class="resume-sec">
+                    <h3>ACADEMIC & PERSONAL PROJECTS</h3>
+                    <div class="resume-item">
+                        <h4>Streamforge Squad &bull; <span>Team Leader &bull; Academic Project (3-4 Weeks)</span></h4>
+                        <ul>
+                            <li>Led a 4-member development squad through the full project lifecycle — task delegation, sprint planning, and core feature development — over a 3-4 week timeline.</li>
+                            <li>Presented the completed project to an evaluation panel, walking through architecture decisions and demonstrating working features live.</li>
+                        </ul>
+                    </div>
+                    <div class="resume-item">
+                        <h4>IND-Squad (Thematic Website) &bull; <span>Team Member &bull; College Hackathon (2 Days)</span></h4>
+                        <ul>
+                            <li>Built a dynamic thematic website in a 2-day hackathon: Day 1 focused on full-stack development, Day 2 on a 2-hour presentation and live Q&A with judges.</li>
+                            <li>Contributed to front-end structure and responsive design, helping the team secure 2nd Place among competing teams.</li>
+                        </ul>
+                    </div>
+                    <div class="resume-item">
+                        <h4>High-Tier 3D Personal Portfolio &bull; <span>Sole Developer &bull; Personal Project</span></h4>
+                        <ul>
+                            <li>Designed and deployed a self-branded, interactive 3D personal portfolio using WebGL particles, tilt interactions, and Express API.</li>
+                            <li>Implemented lazy-loading for 3D assets and components to keep the interface responsive.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="resume-sec">
+                    <h3>HONORS & AWARDS</h3>
+                    <ul class="resume-bullets">
+                        <li><strong>2nd Place Winner:</strong> College Hackathon Thematic Website Competition, IND-Squad project.</li>
+                        <li><strong>Leadership Recognition:</strong> Selected to present the Streamforge Squad project as Team Leader in a technical showcase.</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
     <footer class="site-footer">
         <div class="section-shell footer-inner">
             <a href="#top" class="site-brand"><span class="brand-mark">KK</span><span>Krishna Katiyar<span class="brand-dot">.</span></span></a>
@@ -266,30 +364,11 @@
 
     <!-- Interactive Scripts & Ultra High-Tier 3D Engine -->
     <script>
-        // Existing Theme & Navigation Logic
-        const themeToggle = document.querySelector('.theme-toggle');
-        const themeLabel = document.querySelector('.theme-label');
+        // Permanent Dark Mode & Mobile Navigation Logic
         const menuToggle = document.querySelector('.menu-toggle');
         const mainNav = document.querySelector('.main-nav');
         const contactForm = document.querySelector('#contact-form');
         const formStatus = document.querySelector('.form-status');
-        const root = document.body;
-
-        function updateTheme(isDark) {
-            themeLabel.textContent = isDark ? 'Light' : 'Dark';
-            themeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
-        }
-
-        const storedTheme = localStorage.getItem('theme');
-        const initialDark = storedTheme ? storedTheme === 'dark' : true;
-        root.classList.toggle('dark-mode', initialDark);
-        updateTheme(initialDark);
-
-        themeToggle.addEventListener('click', () => {
-            const isDark = root.classList.toggle('dark-mode');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            updateTheme(isDark);
-        });
 
         menuToggle.addEventListener('click', () => {
             const isOpen = mainNav.classList.toggle('is-open');
@@ -304,6 +383,40 @@
                 menuToggle.classList.remove('is-open');
                 menuToggle.setAttribute('aria-expanded', 'false');
             });
+        });
+
+        /* Resume Modal Logic */
+        const resumeModal = document.getElementById('resume-modal');
+        const openResumeBtns = document.querySelectorAll('.open-resume-modal');
+        const closeResumeBtn = document.querySelector('.close-resume-modal');
+        const closeModalLink = document.querySelector('.close-modal-link');
+
+        function openResume() {
+            resumeModal.classList.add('is-active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeResume() {
+            resumeModal.classList.remove('is-active');
+            document.body.style.overflow = '';
+        }
+
+        openResumeBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openResume();
+            });
+        });
+
+        if (closeResumeBtn) closeResumeBtn.addEventListener('click', closeResume);
+        if (closeModalLink) closeModalLink.addEventListener('click', closeResume);
+
+        resumeModal.addEventListener('click', (e) => {
+            if (e.target === resumeModal) closeResume();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && resumeModal.classList.contains('is-active')) closeResume();
         });
 
         contactForm.addEventListener('submit', async (event) => {
@@ -341,8 +454,7 @@
         });
 
         /* =========================================================
-           Ultra High-Tier 3D Background Engine
-           3D Polyhedrons + Dynamic Grid Wave Floor + Gravitational Particles
+           Ultra High-Tier 3D Background Engine (Mobile 60FPS Optimized)
            ========================================================= */
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
@@ -381,17 +493,17 @@
             if (e.touches.length > 0) handlePointerMove(e.touches[0].clientX, e.touches[0].clientY);
         }, { passive: true });
 
-        // 3D Particles Definition
-        const particleCount = Math.min(Math.floor(window.innerWidth / 8), 130);
+        const isMobileScreen = window.innerWidth < 768;
+        const particleCount = isMobileScreen ? 35 : Math.min(Math.floor(window.innerWidth / 8), 120);
         const particles = [];
         const fov = 400;
 
         const colorPalette = [
-            'rgba(0, 240, 255, ',    // Electric Cyan
-            'rgba(161, 0, 255, ',    // Ultra Violet
-            'rgba(255, 0, 128, ',    // Luminous Magenta
-            'rgba(0, 245, 212, ',    // Neon Teal
-            'rgba(255, 215, 0, '     // Metallic Gold
+            'rgba(0, 240, 255, ',
+            'rgba(161, 0, 255, ',
+            'rgba(255, 0, 128, ',
+            'rgba(0, 245, 212, ',
+            'rgba(255, 215, 0, '
         ];
 
         for (let i = 0; i < particleCount; i++) {
@@ -399,15 +511,14 @@
                 x: (Math.random() - 0.5) * 2000,
                 y: (Math.random() - 0.5) * 2000,
                 z: Math.random() * 1000 + 10,
-                vx: (Math.random() - 0.5) * 0.7,
-                vy: (Math.random() - 0.5) * 0.7,
-                vz: (Math.random() - 0.5) * 1.5,
+                vx: (Math.random() - 0.5) * (isMobileScreen ? 0.4 : 0.7),
+                vy: (Math.random() - 0.5) * (isMobileScreen ? 0.4 : 0.7),
+                vz: (Math.random() - 0.5) * (isMobileScreen ? 0.8 : 1.5),
                 radius: Math.random() * 3 + 2,
                 color: colorPalette[Math.floor(Math.random() * colorPalette.length)]
             });
         }
 
-        // 3D Floating Polyhedron (Wireframe Cube) Class
         class Polyhedron3D {
             constructor(x, y, z, size, color) {
                 this.x = x;
@@ -433,7 +544,7 @@
                 ];
             }
 
-            updateAndRender(ctx, camX, camY, isDark) {
+            updateAndRender(ctx, camX, camY) {
                 this.rx += this.rotSpeedX;
                 this.ry += this.rotSpeedY;
 
@@ -451,8 +562,8 @@
                     let y2 = vy * cosX - z1 * sinX;
                     let z2 = vy * sinX + z1 * cosX;
 
-                    let worldX = x1 + this.x - camX * 0.3;
-                    let worldY = y2 + this.y - camY * 0.3;
+                    let worldX = x1 + this.x - camX * 0.25;
+                    let worldY = y2 + this.y - camY * 0.25;
                     let worldZ = z2 + this.z;
 
                     if (worldZ <= 10) worldZ = 10;
@@ -465,12 +576,10 @@
                 }
 
                 ctx.save();
-                ctx.strokeStyle = this.color + (isDark ? '0.7)' : '0.45)');
+                ctx.strokeStyle = this.color + '0.7)';
                 ctx.lineWidth = 1.6;
-                if (isDark) {
-                    ctx.shadowBlur = 12;
-                    ctx.shadowColor = this.color + '0.9)';
-                }
+                ctx.shadowBlur = 12;
+                ctx.shadowColor = this.color + '0.9)';
 
                 for (let e = 0; e < this.edges.length; e++) {
                     const v1 = projVertices[this.edges[e][0]];
@@ -509,18 +618,16 @@
             mouse.x += (mouse.targetX - mouse.x) * 0.07;
             mouse.y += (mouse.targetY - mouse.y) * 0.07;
 
-            const isDark = root.classList.contains('dark-mode');
             const camX = (mouse.x - width / 2);
             const camY = (mouse.y - height / 2);
 
-            // 1. Draw Undulating 3D Perspective Grid Floor
             waveTime += 0.025;
             const gridY = height * 0.62;
             ctx.save();
-            ctx.strokeStyle = isDark ? 'rgba(0, 240, 255, 0.18)' : 'rgba(0, 102, 255, 0.15)';
+            ctx.strokeStyle = 'rgba(0, 240, 255, 0.18)';
             ctx.lineWidth = 1.3;
 
-            const gridCols = 32;
+            const gridCols = isMobileScreen ? 16 : 32;
             const camXOffset = camX * 0.25;
 
             for (let i = -gridCols; i <= gridCols; i++) {
@@ -532,8 +639,8 @@
                 ctx.stroke();
             }
 
-            for (let j = 0; j < 10; j++) {
-                const progress = j / 10;
+            for (let j = 0; j < (isMobileScreen ? 5 : 10); j++) {
+                const progress = j / (isMobileScreen ? 5 : 10);
                 const basePy = gridY + Math.pow(progress, 2.2) * (height - gridY + 120);
                 const waveOffset = Math.sin(waveTime + j * 0.5) * 8 * progress;
                 const py = basePy + waveOffset;
@@ -545,12 +652,12 @@
             }
             ctx.restore();
 
-            // 2. Render 3D Floating Polyhedrons
-            for (let p = 0; p < polyhedrons.length; p++) {
-                polyhedrons[p].updateAndRender(ctx, camX, camY, isDark);
+            if (!isMobileScreen) {
+                for (let p = 0; p < polyhedrons.length; p++) {
+                    polyhedrons[p].updateAndRender(ctx, camX, camY);
+                }
             }
 
-            // 3. Render 3D Gravitational Particles
             const projected = [];
 
             for (let i = 0; i < particles.length; i++) {
@@ -588,7 +695,7 @@
                 const finalX = projX + repulseX;
                 const finalY = projY + repulseY;
                 const projRadius = Math.max(1.2, p.radius * scale * 1.8);
-                const alpha = Math.min(1, Math.max(0.25, (1000 - posZ) / 1000)) * (isDark ? 0.95 : 0.7);
+                const alpha = Math.min(1, Math.max(0.25, (1000 - posZ) / 1000)) * 0.95;
 
                 projected.push({ x: finalX, y: finalY, z: posZ, scale, alpha, color: p.color });
 
@@ -596,15 +703,13 @@
                 ctx.beginPath();
                 ctx.arc(finalX, finalY, projRadius, 0, Math.PI * 2);
                 ctx.fillStyle = p.color + alpha + ')';
-                if (isDark) {
-                    ctx.shadowBlur = 18;
-                    ctx.shadowColor = p.color + '1)';
-                }
+                ctx.shadowBlur = 16;
+                ctx.shadowColor = p.color + '1)';
                 ctx.fill();
                 ctx.restore();
             }
 
-            // 4. Render 3D Constellation Network Lines
+            const maxConnectDist = isMobileScreen ? 90 : 120;
             for (let i = 0; i < projected.length; i++) {
                 for (let j = i + 1; j < projected.length; j++) {
                     const p1 = projected[i];
@@ -613,8 +718,8 @@
                     const dy = p1.y - p2.y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
 
-                    if (dist < 120) {
-                        const lineAlpha = (1 - dist / 120) * Math.min(p1.alpha, p2.alpha) * (isDark ? 0.65 : 0.45);
+                    if (dist < maxConnectDist) {
+                        const lineAlpha = (1 - dist / maxConnectDist) * Math.min(p1.alpha, p2.alpha) * 0.65;
                         ctx.beginPath();
                         ctx.moveTo(p1.x, p1.y);
                         ctx.lineTo(p2.x, p2.y);
@@ -630,9 +735,7 @@
 
         render3DBackground();
 
-        /* =========================================================
-           Touch-Enabled 3D Interactive Card Tilt Effect
-           ========================================================= */
+        /* 3D Interactive Card Tilt Effect */
         const tiltCards = document.querySelectorAll('.project-card, .service-card, .portrait-card, .code-window, .contact-form');
 
         function applyCardTilt(card, clientX, clientY) {

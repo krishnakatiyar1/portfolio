@@ -8,31 +8,7 @@
 }
 
 :root {
-    /* Futuristic Light Mode (Silver-Cyber Palette) */
-    --bg: #f2f6fc;
-    --surface: rgba(255, 255, 255, 0.82);
-    --surface-solid: #ffffff;
-    --surface-soft: rgba(230, 240, 255, 0.7);
-    --text: #0b172a;
-    --text-bright: #000000;
-    --muted: #4e6178;
-    --primary: #0066ff;
-    --primary-glow: rgba(0, 102, 255, 0.4);
-    --accent: #00d2b4;
-    --accent-glow: rgba(0, 210, 180, 0.35);
-    --purple: #8b3dff;
-    --border: rgba(0, 102, 255, 0.16);
-    --border-glow: rgba(0, 102, 255, 0.35);
-    --header: rgba(242, 246, 252, 0.82);
-    --glass: rgba(255, 255, 255, 0.72);
-    --shadow: 0 20px 50px rgba(11, 23, 42, 0.08), 0 0 20px rgba(0, 102, 255, 0.05);
-    --shadow-hover: 0 30px 60px rgba(0, 102, 255, 0.18), 0 0 30px rgba(0, 210, 180, 0.2);
-    --grid-line: rgba(0, 102, 255, 0.04);
-    --card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 246, 255, 0.7));
-}
-
-body.dark-mode {
-    /* Cinematic Dark Mode (High-Tier Obsidian Cyber Space Palette) */
+    /* Permanent Cinematic High-Tier Obsidian Dark Palette */
     --bg: #03050c;
     --surface: rgba(8, 14, 30, 0.52);
     --surface-solid: #070c1a;
@@ -47,7 +23,7 @@ body.dark-mode {
     --purple: #a100ff;
     --border: rgba(0, 240, 255, 0.22);
     --border-glow: rgba(0, 240, 255, 0.65);
-    --header: rgba(3, 5, 12, 0.75);
+    --header: rgba(3, 5, 12, 0.85);
     --glass: rgba(8, 14, 30, 0.55);
     --shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(0, 240, 255, 0.14);
     --shadow-hover: 0 30px 75px rgba(0, 0, 0, 0.8), 0 0 45px rgba(0, 240, 255, 0.35), 0 0 25px rgba(161, 0, 255, 0.3);
@@ -1265,6 +1241,35 @@ body.dark-mode .contact-form textarea {
     }
 }
 
+.nav-resume-btn {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px !important;
+    border: 1px solid var(--primary) !important;
+    border-radius: 999px;
+    background: rgba(0, 240, 255, 0.12) !important;
+    color: var(--primary) !important;
+    font-weight: 700 !important;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease !important;
+}
+.nav-resume-btn:hover {
+    transform: translateY(-2px) scale(1.04) !important;
+    background: rgba(0, 240, 255, 0.25) !important;
+    box-shadow: 0 0 25px var(--primary-glow) !important;
+}
+
+.btn-resume {
+    border-color: rgba(0, 245, 212, 0.4) !important;
+    color: var(--accent) !important;
+    box-shadow: 0 0 20px rgba(0, 245, 212, 0.15) !important;
+}
+.btn-resume:hover {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 30px var(--accent-glow) !important;
+}
+
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
@@ -1293,24 +1298,34 @@ body.dark-mode .contact-form textarea {
         top: 80px;
         left: 0;
         right: 0;
-        background: var(--header);
-        backdrop-filter: blur(24px);
+        background: rgba(3, 5, 12, 0.96);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
         border-bottom: 1px solid var(--border);
-        padding: 20px 24px;
-        transform: translateY(-120%);
-        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 99;
+        padding: 24px 28px;
+        display: none; /* 100% hidden when closed - 0% bleed onto screen */
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-15px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        z-index: 999;
     }
     .main-nav.is-open {
+        display: flex; /* Only visible when 3-line hamburger menu is clicked */
+        opacity: 1;
+        pointer-events: auto;
         transform: translateY(0);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.95), 0 0 35px rgba(0, 240, 255, 0.25);
     }
     .site-nav {
         flex-direction: column;
-        gap: 12px;
+        gap: 14px;
+        width: 100%;
     }
     .site-nav a {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
+        display: block;
+        padding: 10px 0;
     }
 
     .field-row {
@@ -1320,3 +1335,199 @@ body.dark-mode .contact-form textarea {
         padding: 28px 20px;
     }
 }
+
+/* =========================================================
+   3D Glassmorphism Interactive Resume Modal
+   ========================================================= */
+.contact-resume-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    color: var(--text-bright);
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.contact-resume-btn:hover {
+    transform: translateX(8px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-hover);
+}
+.contact-resume-btn span {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 1.1rem;
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+.contact-resume-btn small {
+    display: block;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.contact-resume-btn div {
+    font-size: 0.98rem;
+    font-weight: 700;
+}
+
+.resume-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(3, 5, 12, 0.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.resume-modal-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.resume-modal-card {
+    position: relative;
+    width: min(820px, 100%);
+    max-height: 88vh;
+    overflow-y: auto;
+    background: linear-gradient(135deg, rgba(10, 18, 38, 0.95), rgba(4, 9, 22, 0.98));
+    border: 1px solid var(--border-glow);
+    border-radius: 24px;
+    padding: 40px;
+    color: var(--text);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 240, 255, 0.25);
+    scrollbar-color: var(--primary) var(--surface-solid);
+    scrollbar-width: thin;
+}
+
+.close-resume-modal {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface-solid);
+    color: var(--text-bright);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.close-resume-modal:hover {
+    transform: scale(1.1);
+    border-color: var(--primary);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.resume-header {
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+    margin-bottom: 28px;
+}
+
+.resume-header h2 {
+    margin: 0 0 8px 0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--text-bright);
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #ffffff, var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.resume-contact {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin: 0 0 10px 0;
+}
+
+.resume-socials a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+.resume-socials a:hover {
+    text-decoration: underline;
+}
+
+.resume-sec {
+    margin-bottom: 28px;
+}
+
+.resume-sec h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: 1.2px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+    margin: 0 0 14px 0;
+}
+
+.resume-sec p {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin: 0;
+}
+
+.resume-item {
+    margin-bottom: 16px;
+}
+
+.resume-item h4 {
+    margin: 0 0 4px 0;
+    color: var(--text-bright);
+    font-size: 1.02rem;
+    font-weight: 700;
+}
+
+.resume-item span {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.resume-item ul, .resume-bullets {
+    margin: 8px 0 0 0;
+    padding-left: 20px;
+    color: var(--text);
+}
+
+.resume-item li, .resume-bullets li {
+    margin-bottom: 6px;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
