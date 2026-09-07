@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="index.css">
     <title>Krishna Katiyar | Web Developer</title>
 </head>
-<body id="top">
+<body id="top" class="dark-mode">
     <!-- 3D Dynamic Background Canvas -->
     <canvas id="bg-canvas" aria-hidden="true"></canvas>
     
@@ -280,9 +280,8 @@
             themeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
         }
 
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const storedTheme = localStorage.getItem('theme');
-        const initialDark = storedTheme ? storedTheme === 'dark' : prefersDark;
+        const initialDark = storedTheme ? storedTheme === 'dark' : true;
         root.classList.toggle('dark-mode', initialDark);
         updateTheme(initialDark);
 
