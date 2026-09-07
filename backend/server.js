@@ -1,8 +1,5 @@
 require('dotenv').config();
 
-console.log("===== MY SERVER.JS IS RUNNING =====");
-console.log(__filename);
-
 const dns = require('node:dns');
 dns.setServers(['8.8.8.8', '1.1.1.1']);
 
@@ -13,7 +10,6 @@ const mongoose = require('mongoose');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const MONGODB_URI = process.env.MONGODB_URI;
 
 app.use(cors());
 app.use(express.json());
@@ -22,6 +18,36 @@ app.use(express.json());
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
   next();
+});
+
+// Database connection helper for serverless & traditional server
+async function connectDB() {
+  if (mongoose.connection.readyState >= 1) {
+    return;
+  }
+  const MONGODB_URI = process.env.MONGODB_URI;
+  if (!MONGODB_URI) {
+    throw new Error('MONGODB_URI missing in environment variables');
+  }
+  await mongoose.connect(MONGODB_URI);
+  console.log('✅ MongoDB connected.');
+}
+
+// Middleware to ensure DB is connected before processing requests
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    console.error('❌ MongoDB connection failed:', error);
+    if (req.url.startsWith('/api')) {
+      return res.status(500).json({
+        success: false,
+        message: 'Database connection failed'
+      });
+    }
+    next();
+  }
 });
 
 const messageSchema = new mongoose.Schema(
@@ -50,12 +76,10 @@ const messageSchema = new mongoose.Schema(
   }
 );
 
-const Message = mongoose.model('Message', messageSchema);
+const Message = mongoose.models.Message || mongoose.model('Message', messageSchema);
 
-// Frontend routes
+// Frontend static routes (fallback for local dev)
 app.get('/', (req, res) => {
-  console.log('ROOT ROUTE HIT');
-
   res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
@@ -65,8 +89,6 @@ app.get('/index.css', (req, res) => {
 
 // Health routes
 app.get(['/api/health', '/health'], (req, res) => {
-  console.log('HEALTH ROUTE HIT');
-
   res.status(200).json({
     success: true,
     database:
@@ -119,32 +141,24 @@ app.post('/api/message', async (req, res) => {
 
 // 404 route
 app.use((req, res) => {
-  console.log('404 HIT:', req.url);
-
   res.status(404).json({
     success: false,
     message: 'Route not found'
   });
 });
 
-async function startServer() {
-  try {
-    if (!MONGODB_URI) {
-      throw new Error('MONGODB_URI missing in .env');
-    }
-
-    await mongoose.connect(MONGODB_URI);
-
-    console.log('✅ MongoDB connected.');
-
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT}`);
-      console.log(`🌐 http://localhost:${PORT}`);
+// Local dev server listener
+if (require.main === module) {
+  connectDB()
+    .then(() => {
+      app.listen(PORT, () => {
+        console.log(`🚀 Server running on port ${PORT}`);
+        console.log(`🌐 http://localhost:${PORT}`);
+      });
+    })
+    .catch((err) => {
+      console.error('Failed to start server:', err);
     });
-  } catch (error) {
-    console.error('❌ MongoDB connection failed:', error);
-    process.exit(1);
-  }
 }
 
-startServer();
+module.exports = app;
