@@ -562,8 +562,9 @@
                     let y2 = vy * cosX - z1 * sinX;
                     let z2 = vy * sinX + z1 * cosX;
 
-                    let worldX = x1 + this.x - camX * 0.25;
-                    let worldY = y2 + this.y - camY * 0.25;
+                    const mobileFactor = isMobileScreen ? 0.6 : 1;
+                    let worldX = (x1 * mobileFactor) + (this.x * mobileFactor) - camX * 0.25;
+                    let worldY = (y2 * mobileFactor) + (this.y * mobileFactor) - camY * 0.25;
                     let worldZ = z2 + this.z;
 
                     if (worldZ <= 10) worldZ = 10;
@@ -576,9 +577,9 @@
                 }
 
                 ctx.save();
-                ctx.strokeStyle = this.color + '0.7)';
-                ctx.lineWidth = 1.6;
-                ctx.shadowBlur = 12;
+                ctx.strokeStyle = this.color + (isMobileScreen ? '0.85)' : '0.7)');
+                ctx.lineWidth = isMobileScreen ? 1.4 : 1.6;
+                ctx.shadowBlur = isMobileScreen ? 8 : 12;
                 ctx.shadowColor = this.color + '0.9)';
 
                 for (let e = 0; e < this.edges.length; e++) {
@@ -652,10 +653,9 @@
             }
             ctx.restore();
 
-            if (!isMobileScreen) {
-                for (let p = 0; p < polyhedrons.length; p++) {
-                    polyhedrons[p].updateAndRender(ctx, camX, camY);
-                }
+            // Render 3D Floating Polyhedrons on ALL screen sizes!
+            for (let p = 0; p < polyhedrons.length; p++) {
+                polyhedrons[p].updateAndRender(ctx, camX, camY);
             }
 
             const projected = [];
