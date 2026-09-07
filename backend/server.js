@@ -104,8 +104,8 @@ app.get(['/api/health', '/health'], (req, res) => {
   });
 });
 
-// Save message route
-app.post('/api/message', async (req, res) => {
+// Save message route (supports /api/message, /message, and serverless rewrites)
+app.post(['/api/message', '/message', '/api/message/', '/message/', '/api/index.js', '/'], async (req, res) => {
   try {
     const { name, email, message } = req.body;
 
