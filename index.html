@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Krishna Katiyar's portfolio - web development, responsive design, and risk assessment services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Orbitron:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <title>Krishna Katiyar | Web Developer</title>
 </head>
 <body id="top">
+    <!-- 3D Dynamic Background Canvas -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    
+    <!-- Ambient Light Spotlight -->
+    <div class="cursor-glow" aria-hidden="true"></div>
+
     <header class="site-header">
         <div class="nav-shell">
             <a href="#top" class="site-brand" aria-label="Krishna Katiyar home">
-                <span class="brand-mark">K</span>
-                <span>Krishna<span class="brand-dot">.</span></span>
+                <span class="brand-mark">KK</span>
+                <span>Krishna Katiyar<span class="brand-dot">.</span></span>
             </a>
 
             <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
@@ -65,7 +74,7 @@
                         <p>portfolio.js</p>
                     </div>
                     <pre><code><span class="code-purple">const</span> developer = {
-  name: <span class="code-green">'Krishna'</span>,
+  name: <span class="code-green">'Krishna Katiyar'</span>,
   skills: [
     <span class="code-green">'MERN Stack'</span>,
     <span class="code-green">'AWS Cloud'</span>,
@@ -249,13 +258,15 @@
 
     <footer class="site-footer">
         <div class="section-shell footer-inner">
-            <a href="#top" class="site-brand"><span class="brand-mark">K</span><span>Krishna<span class="brand-dot">.</span></span></a>
+            <a href="#top" class="site-brand"><span class="brand-mark">KK</span><span>Krishna Katiyar<span class="brand-dot">.</span></span></a>
             <p>&copy; 2026 Krishna Katiyar. Designed and built with care.</p>
             <a href="#top" class="back-top" aria-label="Back to top">↑</a>
         </div>
     </footer>
 
+    <!-- Interactive Scripts & Ultra High-Tier 3D Engine -->
     <script>
+        // Existing Theme & Navigation Logic
         const themeToggle = document.querySelector('.theme-toggle');
         const themeLabel = document.querySelector('.theme-label');
         const menuToggle = document.querySelector('.menu-toggle');
@@ -312,12 +323,10 @@
 
             try {
                 const response = await fetch('/api/message', {
-                method: 'POST',
-                headers: {
-                'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(messageData)
-               });
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(messageData)
+                });
                  
                 const result = await response.json();
                 if (!response.ok || !result.success) throw new Error(result.message);
@@ -330,6 +339,342 @@
             } finally {
                 submitButton.disabled = false;
             }
+        });
+
+        /* =========================================================
+           Ultra High-Tier 3D Background Engine
+           3D Polyhedrons + Dynamic Grid Wave Floor + Gravitational Particles
+           ========================================================= */
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        const cursorGlow = document.querySelector('.cursor-glow');
+
+        let width, height;
+        let mouse = { 
+            x: window.innerWidth / 2, 
+            y: window.innerHeight / 2, 
+            targetX: window.innerWidth / 2, 
+            targetY: window.innerHeight / 2 
+        };
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function handlePointerMove(clientX, clientY) {
+            mouse.targetX = clientX;
+            mouse.targetY = clientY;
+            if (cursorGlow) {
+                cursorGlow.style.left = `${clientX}px`;
+                cursorGlow.style.top = `${clientY}px`;
+                cursorGlow.style.opacity = '1';
+            }
+        }
+
+        window.addEventListener('mousemove', (e) => handlePointerMove(e.clientX, e.clientY));
+        window.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 0) handlePointerMove(e.touches[0].clientX, e.touches[0].clientY);
+        }, { passive: true });
+        window.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) handlePointerMove(e.touches[0].clientX, e.touches[0].clientY);
+        }, { passive: true });
+
+        // 3D Particles Definition
+        const particleCount = Math.min(Math.floor(window.innerWidth / 8), 130);
+        const particles = [];
+        const fov = 400;
+
+        const colorPalette = [
+            'rgba(0, 240, 255, ',    // Electric Cyan
+            'rgba(161, 0, 255, ',    // Ultra Violet
+            'rgba(255, 0, 128, ',    // Luminous Magenta
+            'rgba(0, 245, 212, ',    // Neon Teal
+            'rgba(255, 215, 0, '     // Metallic Gold
+        ];
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: (Math.random() - 0.5) * 2000,
+                y: (Math.random() - 0.5) * 2000,
+                z: Math.random() * 1000 + 10,
+                vx: (Math.random() - 0.5) * 0.7,
+                vy: (Math.random() - 0.5) * 0.7,
+                vz: (Math.random() - 0.5) * 1.5,
+                radius: Math.random() * 3 + 2,
+                color: colorPalette[Math.floor(Math.random() * colorPalette.length)]
+            });
+        }
+
+        // 3D Floating Polyhedron (Wireframe Cube) Class
+        class Polyhedron3D {
+            constructor(x, y, z, size, color) {
+                this.x = x;
+                this.y = y;
+                this.z = z;
+                this.size = size;
+                this.color = color;
+                this.rx = Math.random() * Math.PI;
+                this.ry = Math.random() * Math.PI;
+                this.rotSpeedX = (Math.random() - 0.5) * 0.015;
+                this.rotSpeedY = (Math.random() - 0.5) * 0.015;
+
+                const s = size;
+                this.vertices = [
+                    [-s, -s, -s], [s, -s, -s], [s, s, -s], [-s, s, -s],
+                    [-s, -s, s],  [s, -s, s],  [s, s, s],  [-s, s, s]
+                ];
+
+                this.edges = [
+                    [0,1],[1,2],[2,3],[3,0],
+                    [4,5],[5,6],[6,7],[7,4],
+                    [0,4],[1,5],[2,6],[3,7]
+                ];
+            }
+
+            updateAndRender(ctx, camX, camY, isDark) {
+                this.rx += this.rotSpeedX;
+                this.ry += this.rotSpeedY;
+
+                const cosX = Math.cos(this.rx), sinX = Math.sin(this.rx);
+                const cosY = Math.cos(this.ry), sinY = Math.sin(this.ry);
+
+                const projVertices = [];
+
+                for (let i = 0; i < this.vertices.length; i++) {
+                    let [vx, vy, vz] = this.vertices[i];
+
+                    let x1 = vx * cosY - vz * sinY;
+                    let z1 = vx * sinY + vz * cosY;
+
+                    let y2 = vy * cosX - z1 * sinX;
+                    let z2 = vy * sinX + z1 * cosX;
+
+                    let worldX = x1 + this.x - camX * 0.3;
+                    let worldY = y2 + this.y - camY * 0.3;
+                    let worldZ = z2 + this.z;
+
+                    if (worldZ <= 10) worldZ = 10;
+
+                    const scale = fov / (fov + worldZ);
+                    const px = worldX * scale + width / 2;
+                    const py = worldY * scale + height / 2;
+
+                    projVertices.push({ x: px, y: py, scale });
+                }
+
+                ctx.save();
+                ctx.strokeStyle = this.color + (isDark ? '0.7)' : '0.45)');
+                ctx.lineWidth = 1.6;
+                if (isDark) {
+                    ctx.shadowBlur = 12;
+                    ctx.shadowColor = this.color + '0.9)';
+                }
+
+                for (let e = 0; e < this.edges.length; e++) {
+                    const v1 = projVertices[this.edges[e][0]];
+                    const v2 = projVertices[this.edges[e][1]];
+
+                    ctx.beginPath();
+                    ctx.moveTo(v1.x, v1.y);
+                    ctx.lineTo(v2.x, v2.y);
+                    ctx.stroke();
+                }
+
+                for (let v = 0; v < projVertices.length; v++) {
+                    const p = projVertices[v];
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, Math.max(1.5, 3 * p.scale), 0, Math.PI * 2);
+                    ctx.fillStyle = this.color + '1)';
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+        }
+
+        const polyhedrons = [
+            new Polyhedron3D(-450, -250, 400, 70, 'rgba(0, 240, 255, '),
+            new Polyhedron3D(450, -150, 500, 85, 'rgba(161, 0, 255, '),
+            new Polyhedron3D(-380, 250, 350, 60, 'rgba(255, 0, 128, '),
+            new Polyhedron3D(400, 300, 450, 75, 'rgba(0, 245, 212, '),
+            new Polyhedron3D(0, -350, 600, 90, 'rgba(255, 215, 0, ')
+        ];
+
+        let waveTime = 0;
+
+        function render3DBackground() {
+            ctx.clearRect(0, 0, width, height);
+
+            mouse.x += (mouse.targetX - mouse.x) * 0.07;
+            mouse.y += (mouse.targetY - mouse.y) * 0.07;
+
+            const isDark = root.classList.contains('dark-mode');
+            const camX = (mouse.x - width / 2);
+            const camY = (mouse.y - height / 2);
+
+            // 1. Draw Undulating 3D Perspective Grid Floor
+            waveTime += 0.025;
+            const gridY = height * 0.62;
+            ctx.save();
+            ctx.strokeStyle = isDark ? 'rgba(0, 240, 255, 0.18)' : 'rgba(0, 102, 255, 0.15)';
+            ctx.lineWidth = 1.3;
+
+            const gridCols = 32;
+            const camXOffset = camX * 0.25;
+
+            for (let i = -gridCols; i <= gridCols; i++) {
+                ctx.beginPath();
+                const startX = width / 2 + i * 48 + camXOffset;
+                const endX = width / 2 + i * 7 + camXOffset * 0.15;
+                ctx.moveTo(startX, height + 120);
+                ctx.lineTo(endX, gridY);
+                ctx.stroke();
+            }
+
+            for (let j = 0; j < 10; j++) {
+                const progress = j / 10;
+                const basePy = gridY + Math.pow(progress, 2.2) * (height - gridY + 120);
+                const waveOffset = Math.sin(waveTime + j * 0.5) * 8 * progress;
+                const py = basePy + waveOffset;
+
+                ctx.beginPath();
+                ctx.moveTo(-50, py);
+                ctx.lineTo(width + 50, py);
+                ctx.stroke();
+            }
+            ctx.restore();
+
+            // 2. Render 3D Floating Polyhedrons
+            for (let p = 0; p < polyhedrons.length; p++) {
+                polyhedrons[p].updateAndRender(ctx, camX, camY, isDark);
+            }
+
+            // 3. Render 3D Gravitational Particles
+            const projected = [];
+
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+
+                p.x += p.vx;
+                p.y += p.vy;
+                p.z += p.vz;
+
+                const posX = p.x - camX * 0.25;
+                const posY = p.y - camY * 0.25;
+                const posZ = p.z;
+
+                if (p.z <= 10) p.z = 1000;
+                if (p.z > 1000) p.z = 10;
+                if (posX < -1200) p.x += 2400;
+                if (posX > 1200) p.x -= 2400;
+                if (posY < -1200) p.y += 2400;
+                if (posY > 1200) p.y -= 2400;
+
+                const scale = fov / (fov + posZ);
+                const projX = posX * scale + width / 2;
+                const projY = posY * scale + height / 2;
+
+                const dx = projX - mouse.x;
+                const dy = projY - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                let repulseX = 0, repulseY = 0;
+                if (dist < 140) {
+                    const force = (140 - dist) / 140;
+                    repulseX = (dx / dist) * force * 15;
+                    repulseY = (dy / dist) * force * 15;
+                }
+
+                const finalX = projX + repulseX;
+                const finalY = projY + repulseY;
+                const projRadius = Math.max(1.2, p.radius * scale * 1.8);
+                const alpha = Math.min(1, Math.max(0.25, (1000 - posZ) / 1000)) * (isDark ? 0.95 : 0.7);
+
+                projected.push({ x: finalX, y: finalY, z: posZ, scale, alpha, color: p.color });
+
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(finalX, finalY, projRadius, 0, Math.PI * 2);
+                ctx.fillStyle = p.color + alpha + ')';
+                if (isDark) {
+                    ctx.shadowBlur = 18;
+                    ctx.shadowColor = p.color + '1)';
+                }
+                ctx.fill();
+                ctx.restore();
+            }
+
+            // 4. Render 3D Constellation Network Lines
+            for (let i = 0; i < projected.length; i++) {
+                for (let j = i + 1; j < projected.length; j++) {
+                    const p1 = projected[i];
+                    const p2 = projected[j];
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 120) {
+                        const lineAlpha = (1 - dist / 120) * Math.min(p1.alpha, p2.alpha) * (isDark ? 0.65 : 0.45);
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = p1.color + lineAlpha + ')';
+                        ctx.lineWidth = 1.2;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(render3DBackground);
+        }
+
+        render3DBackground();
+
+        /* =========================================================
+           Touch-Enabled 3D Interactive Card Tilt Effect
+           ========================================================= */
+        const tiltCards = document.querySelectorAll('.project-card, .service-card, .portrait-card, .code-window, .contact-form');
+
+        function applyCardTilt(card, clientX, clientY) {
+            const rect = card.getBoundingClientRect();
+            const x = clientX - rect.left;
+            const y = clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * -12;
+            const rotateY = ((x - centerX) / centerX) * 12;
+
+            card.style.setProperty('--rx', `${rotateX}deg`);
+            card.style.setProperty('--ry', `${rotateY}deg`);
+            card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+            card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+        }
+
+        function resetCard(card) {
+            card.style.setProperty('--rx', `0deg`);
+            card.style.setProperty('--ry', `0deg`);
+        }
+
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => applyCardTilt(card, e.clientX, e.clientY));
+            card.addEventListener('mouseleave', () => resetCard(card));
+
+            card.addEventListener('touchstart', (e) => {
+                if (e.touches.length > 0) {
+                    applyCardTilt(card, e.touches[0].clientX, e.touches[0].clientY);
+                }
+            }, { passive: true });
+
+            card.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 0) {
+                    applyCardTilt(card, e.touches[0].clientX, e.touches[0].clientY);
+                }
+            }, { passive: true });
+
+            card.addEventListener('touchend', () => resetCard(card));
         });
     </script>
 </body>
